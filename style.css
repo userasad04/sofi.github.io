@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #000; /* Dark background to simulate the night sky */
+  }
+  
+  .sky {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Star styles */
+  .star {
+    width: calc(5px + 10px * var(--size));
+    height: calc(5px + 10px * var(--size));
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 calc(10px + 5px * var(--size)) rgba(255, 255, 255, 0.8);
+    animation: twinkle 2s infinite ease-in-out;
+    cursor: pointer;
+  }
+  
+  /* Twinkle animation for stars */
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Bigger Shooting Stars animation */
+  @keyframes shooting-star {
+    0% {
+      transform: translate(-100vw, -100vh);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(100vw, 100vh);
+      opacity: 0;
+    }
+  }
+  
+  /* Style for bigger shooting stars */
+  .shooting-star {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    position: absolute;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+    animation: shooting-star 2s infinite linear;
+    opacity: 1;
+    transform: rotate(45deg);
+    z-index: 2;
+  }
+  
